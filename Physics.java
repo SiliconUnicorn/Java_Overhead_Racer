@@ -1,9 +1,14 @@
 /**
- * The Racer class will be able to move throughout the screen
- * 
+ * The Physics class will simulate physics.
+ *
  * @author Micah Hansonbrook
  * @version 0.1
  */
-public class Racer extends Actor{
+public class PhysicsBody{
+    int deltaSpeed;
+    int deltaRotation;
+}
+
+public class PhysicsWorld{
     
 }
