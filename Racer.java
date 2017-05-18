@@ -5,7 +5,7 @@
  * @version 0.1
  */
 public class Racer{
-    
+    PhysicsBody physicalBody;
     int maximumHealth=20000;
     int currentHealth;
     int deltaSpeed;
