@@ -18,6 +18,8 @@ public void act(){
 public void setupRacers(int numberOfOpponentRacers){
       while(numberOfOpponentRacers > 0){
       OpponentRacer opponentRacer = new OpponentRacer();
-      addObject(new opponentRacer(), _x, _y); 
+      addObject(new opponentRacer(), _x, _y);
+      }
+      LinuxRacer player = new LinuxRacer();
 }
   
