@@ -13,22 +13,16 @@ public class Racer{
     public float getHealthPercentage(){
         return (float)currentHealth/(float)maximumHealth;
     }
-    public class linuxRacer extends Racer{
-      public void act(){
-          movement();
-      }
-      public void movement(){
-      if (deltaSpeed<21){
-           move(deltaSpeed);
-      if (Greenfoot.isKeyDown("up")==true)
-      {
-      deltaSpeed=deltaSpeed+1;
-      }
-      else if(deltaSpeed>=0.5){
-          deltaSpeed-=0.5;
-      }
-      }
-      }
-      }
-       }
-  
+    public void act(){
+        movement();
+    }
+    public void movement(){
+        move(deltaSpeed);
+    }
+}
+public class linuxRacer extends Racer{
+    public void movement(){
+        move(deltaSpeed);
+        
+    }
+}
