@@ -7,10 +7,10 @@ version 0.1
 public class BlueScreenOfDeath{
   setupRacers();
   setUpTrack();
-  public void setupRacers{
+  public void setupRacers(){
   
   }
-  public void setupTrack{
+  public void setupTrack(){
     
   }
 }
