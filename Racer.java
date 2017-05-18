@@ -8,7 +8,7 @@ public class Racer{
     PhysicsBody physicalBody;
     int maximumHealth=20000;
     int currentHealth;
-    int deltaSpeed;
+    float deltaSpeed;
     int deltaRotation;
     public float getHealthPercentage(){
         return (float)currentHealth/(float)maximumHealth;
@@ -19,10 +19,14 @@ public class Racer{
       }
       public void movement(){
       if (deltaSpeed<21){
-      if (isKeyDown("up")==true)
+           move(deltaSpeed);
+      if (Greenfoot.isKeyDown("up")==true)
       {
-        move(deltaSpeed);
-        deltaSpeed=deltaSpeed+1;
+      deltaSpeed=deltaSpeed+1;
+      }
+      else if(deltaSpeed>=0.5){
+          deltaSpeed-=0.5;
+      }
       }
       }
       }
