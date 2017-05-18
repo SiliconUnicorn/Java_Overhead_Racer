@@ -13,15 +13,9 @@ public class Racer{
     public float getHealthPercentage(){
         return (float)currentHealth/(float)maximumHealth;
     }
+}
     public class linuxRacer extends Racer{
-      if (isKeyDown("up")==true)
-      {
+      if (isKeyDown("up")==true){
           
       }
-       }
-           }
-    }
-}
-    
-    }
 }
