@@ -1,7 +1,7 @@
 /**
  * The Racer class will be able to move throughout the screen
  * 
- * @author Silicon Unicorn
+ * @author Silicon Unicorn and Seagull Soars
  * @version 0.1
  */
 public class Racer{
