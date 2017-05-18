@@ -12,4 +12,17 @@ public class Racer{
     public float getHealthPercentage(){
         return (float)currentHealth/(float)maximumHealth;
     }
+    public class linuxRacer extends Racer{
+       int currentSpeed=0;
+       int turningVariant=1;
+       if (isKeyDown("up")==true){
+       move(currentSpeed)
+       currentSpeed=currentSpeed+1;
+       if (currentSpeed=10*turningVariant)
+       {
+           deltaRotation=deltaRotation-1;
+           turningVariant=turningVariant+1;
+       }
+           }
+    }
 }
