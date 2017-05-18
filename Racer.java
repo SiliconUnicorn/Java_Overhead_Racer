@@ -14,7 +14,10 @@ public class Racer{
         return (float)currentHealth/(float)maximumHealth;
     }
     public class linuxRacer extends Racer{
-      
+      if (isKeyDown("up")==true)
+      {
+          
+      }
        }
            }
     }
