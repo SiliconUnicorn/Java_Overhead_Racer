@@ -5,6 +5,7 @@
  * @version 0.1
  */
 public class Racer{
+    
     int maximumHealth=20000;
     int currentHealth;
     int deltaSpeed;
@@ -12,6 +13,7 @@ public class Racer{
     public float getHealthPercentage(){
         return (float)currentHealth/(float)maximumHealth;
     }
+}
     public class linuxRacer extends Racer{
        int currentSpeed=0;
        int turningVariant=1;
