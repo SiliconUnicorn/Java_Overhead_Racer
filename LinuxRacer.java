@@ -1,40 +1,24 @@
-import greenfoot.*;
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * LinuxRacer is the player's racer. It is a subclass of class Racer,
- * so it is able to simulate its own physics.
+ * Write a description of class LinuxRacer here.
  * 
- * @author Micah Hansonbrook & Zachary Siegel 
- * @version 0.2
+ * @author (your name) 
+ * @version (a version number or a date)
  */
 public class LinuxRacer extends Racer
 {
-    private double minimumSpeed = 1.2;
     /**
-     * act - Move around and simulate physics.
+     * Act - do whatever the LinuxRacer wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public void act() {
+    public void act() 
+    {
         movement();
-        physics();
-    }
-    /**
-     * movement - This method accepts keyboard input to drive the
-     * LinuxPlayer object.
-     */
+    }    
     public void movement(){
-        if(Greenfoot.isKeyDown("up")){
-            deltaSpeed += 0.75;
-        }
-        if(Greenfoot.isKeyDown("down")){
-            deltaSpeed -= 0.75;
-        }
-        if(Greenfoot.isKeyDown("right") && 
-        (deltaSpeed > minimumSpeed || deltaSpeed < -1 * minimumSpeed)){
-            deltaRotation -= 0.375 - deltaSpeed/20;
-        }
-        if(Greenfoot.isKeyDown("left")  &&
-        (deltaSpeed > minimumSpeed || deltaSpeed < -1 * minimumSpeed)){
-            deltaRotation += 0.375 - deltaSpeed/20;
+        if (Greenfoot.isKeyDown("up")){
+            move(0);
         }
     }
 }
