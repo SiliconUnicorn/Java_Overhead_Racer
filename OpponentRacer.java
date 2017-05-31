@@ -11,6 +11,7 @@ public class OpponentRacer extends Racer{
     AIActionPossibilities reccommendedAction = AIActionPossibilities.IDLE;
     AIActionPossibilities currentAction = AIActionPossibilities.IDLE;
     int roundsToNextAction = 0;
+    private double minimumSpeed = 1.2;
     /**
      * constructer - Create an image for the AI racer so that the 
      * player can actually see it (games are better that way).
@@ -69,11 +70,30 @@ public class OpponentRacer extends Racer{
         }
     }
     /**
-     * move - Increase the velocity of the AI racer so that it moves
-     * forward more quickly.
+     * move - Bring the rotation of the OpponentRacer closer to the
+     * rotation of the trackComponent that is on by altering the
+     * deltaRotation of the OpponentRacer.
      */
     public void move() {
         deltaSpeed += 0.75;
+    }
+    /**
+     * switchRotation - Increase the velocity of the AI racer so that
+     * it moves forward more quickly.
+     */
+    public void switchRotation() {
+        if (isTouching(TrackComponent.class)){
+            final Actor reference = 
+            getOneIntersectingObject(TrackComponent.class);
+            if (reference.getRotation() > this.getRotation()&& 
+        (deltaSpeed > minimumSpeed || deltaSpeed < -1 * minimumSpeed)){
+                deltaRotation += 0.375 - deltaSpeed/20;
+            }
+            if (reference.getRotation() < this.getRotation()&&
+        (deltaSpeed > minimumSpeed || deltaSpeed < -1 * minimumSpeed)){
+                deltaRotation -= 0.375 - deltaSpeed/20;
+            }
+        }
     }
 }
 /**
