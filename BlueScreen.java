@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class BlueScreen here.
  * 
- * @author (your name) 
+ * Zach Siegel
  * @version (a version number or a date)
  */
 public class BlueScreen extends World
@@ -20,8 +20,15 @@ public class BlueScreen extends World
         setupTrack();
         
 }
-
-    public void setupTrack(){
+public void act(){
+    if (Greenfoot.isKeyDown("space")==true){
+       while (Greenfoot.isKeyDown("space")==true){
+           
+        }
+       Greenfoot.setWorld(new BlueScreen());
+    }
+}
+public void setupTrack(){
         int trackNumber = Greenfoot.getRandomNumber(5);
         switch(trackNumber){
             case 1: track1();
@@ -38,7 +45,7 @@ public class BlueScreen extends World
             break;
 
         }
-
+        
     }
 
     public void track1(){
