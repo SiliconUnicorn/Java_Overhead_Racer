@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class BlueScreen extends World
 {
-
+LinuxRacer player;
     /**
      * Constructor for objects of class BlueScreen.
      * 
@@ -18,6 +18,7 @@ public class BlueScreen extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1000, 700, 1);
         setupTrack();
+        setupUI();
         
 }
 public void act(){
@@ -26,6 +27,14 @@ public void act(){
            
         }
        Greenfoot.setWorld(new BlueScreen());
+    }
+}
+public void setupUI(){
+    int time = 0;
+    while (player.getWorld()==this){
+        showText("Time: " + time, 500, 350);
+        time= time + 1;
+        
     }
 }
 public void setupTrack(){
