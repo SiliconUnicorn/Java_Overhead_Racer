@@ -3,18 +3,18 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class BlueScreen here.
  * 
- * Zach Siegel
- * @version (a version number or a date)
+ * Zachary Siegel & Micah Hansonbrook
+ * @version 0.3
  */
-public class BlueScreen extends World
-{
-LinuxRacer player;
+public class BlueScreen extends World{
+private StartLine startingLine = new StartLine();
+private boolean loadedRacers = false;
+LinuxRacer player = new LinuxRacer();
     /**
      * Constructor for objects of class BlueScreen.
      * 
      */
-    public BlueScreen()
-    {    
+    public BlueScreen(){    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1000, 700, 1);
         setupTrack();
@@ -22,6 +22,10 @@ LinuxRacer player;
         
 }
 public void act(){
+    if (loadedRacers == false){
+        loadedRacers = true;
+        setupRacers(startingLine);
+    }
     if (Greenfoot.isKeyDown("space")==true){
        while (Greenfoot.isKeyDown("space")==true){
            
