@@ -5,7 +5,7 @@ import greenfoot.*;
  * allowing it to make logical and complex decisions.
  * 
  * @author Micah Hansonbrook & Zachary Siegel
- * @version 0.3
+ * @version 0.4
  */
 public class OpponentRacer extends Racer{
     AIActionPossibilities reccommendedAction = AIActionPossibilities.IDLE;
@@ -23,7 +23,9 @@ public class OpponentRacer extends Racer{
      * act - Simulate physics and allow the AI to make decisions.
      */
     public void act() {
+        System.out.println("Acting!");
         super.act();
+        roundsToNextAction -= 1;
         if (roundsToNextAction <= 0){
             think();
         }
@@ -36,8 +38,9 @@ public class OpponentRacer extends Racer{
      * next.
      */
     public void think() {
+        System.out.println("Thinking");
         if (reccommendedAction != AIActionPossibilities.IDLE && 
-        Greenfoot.getRandomNumber(21) != 20){
+        Greenfoot.getRandomNumber(10) != 9){
             currentAction = reccommendedAction;
         }else{
             currentAction = getRandomAction();
@@ -48,12 +51,18 @@ public class OpponentRacer extends Racer{
      */
     public AIActionPossibilities getRandomAction(){
         AIActionPossibilities chosenAction = AIActionPossibilities.IDLE;
-        switch (Greenfoot.getRandomNumber(4)){
+        int randomValue = Greenfoot.getRandomNumber(4);
+        System.out.println(randomValue);
+        switch (randomValue){
             case 1: chosenAction = AIActionPossibilities.IDLE;
+            roundsToNextAction = 2; break;
             case 2: chosenAction = 
             AIActionPossibilities.ROTATIONAL_SWITCH;
+            roundsToNextAction = 5; break;
             case 3: chosenAction = AIActionPossibilities.MOVE;
-            default: chosenAction = AIActionPossibilities.IDLE;
+            roundsToNextAction = 5; break;
+            default: chosenAction = AIActionPossibilities.ROTATIONAL_SWITCH; 
+            break;
         }
         return chosenAction;
     }
@@ -63,9 +72,10 @@ public class OpponentRacer extends Racer{
      * that it takes.
      */
     public void actUponDecision() {
+        System.out.println("Acting upon Decision!");
         switch (currentAction){
             case IDLE: break;
-            case ROTATIONAL_SWITCH: break;
+            case ROTATIONAL_SWITCH: switchRotation(); break;
             case MOVE: move(); break;
         }
     }
@@ -75,6 +85,7 @@ public class OpponentRacer extends Racer{
      * deltaRotation of the OpponentRacer.
      */
     public void move() {
+        System.out.println("Moving");
         deltaSpeed += 0.75;
     }
     /**
@@ -82,14 +93,16 @@ public class OpponentRacer extends Racer{
      * it moves forward more quickly.
      */
     public void switchRotation() {
+        System.out.println("Turning");
         if (isTouching(TrackComponent.class)){
-            final Actor reference = 
+            final Actor REFERENCE = 
             getOneIntersectingObject(TrackComponent.class);
-            if (reference.getRotation() > this.getRotation()&& 
+            System.out.println("Is Turning");
+            if (REFERENCE.getRotation() > this.getRotation()&& 
         (deltaSpeed > minimumSpeed || deltaSpeed < -1 * minimumSpeed)){
                 deltaRotation += 0.375 - deltaSpeed/20;
             }
-            if (reference.getRotation() < this.getRotation()&&
+            if (REFERENCE.getRotation() < this.getRotation()&&
         (deltaSpeed > minimumSpeed || deltaSpeed < -1 * minimumSpeed)){
                 deltaRotation -= 0.375 - deltaSpeed/20;
             }
