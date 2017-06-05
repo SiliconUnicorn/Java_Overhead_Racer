@@ -63,6 +63,7 @@ public void setupTrack(){
 
     public void track1(){
         StartLine startline = new StartLine();
+        startingLine = startline;
         addObject(startline,109,98);
         startline.setLocation(713,461);
         startline.setRotation(90);
@@ -143,6 +144,7 @@ public void setupTrack(){
 
     public void track2(){
         StartLine startline = new StartLine();
+        startingLine = startline;
         addObject(startline,727,312);
         startline.setRotation(90);
         startline.setLocation(123,579);
@@ -263,6 +265,7 @@ public void setupTrack(){
 
     public void track3(){
      StartLine startline = new StartLine();
+        startingLine = startline;
         addObject(startline,927,632);
         TrackComponent trackcomponent = new TrackComponent();
         addObject(trackcomponent,934,487);
@@ -368,8 +371,8 @@ public void setupTrack(){
     }
 
     public void track4(){
-     
         StartLine startline = new StartLine();
+        startingLine = startline;
         addObject(startline,78,630);
         TrackComponent trackcomponent = new TrackComponent();
         addObject(trackcomponent,85,489);
@@ -523,6 +526,7 @@ public void setupTrack(){
 
     public void track5(){
      StartLine startline = new StartLine();
+        startingLine = startline;
         addObject(startline,72,632);
         TrackComponent trackcomponent = new TrackComponent();
         addObject(trackcomponent,81,490);
@@ -594,6 +598,17 @@ public void setupTrack(){
         addObject(finishline,613,599);
         finishline.setRotation(90);
         finishline.setLocation(514,617);
+    }
+    /*
+     * setupRacers - Quickly setup the racers that will be 
+     * racing in the game.
+     */
+    public void setupRacers(StartLine startline){
+        LinuxRacer player = new LinuxRacer();
+        addObject(player, startline.getX(), startline.getY());
+        OpponentRacer googleAndroid = 
+            new OpponentRacer("Android_robot.png");
+        addObject(googleAndroid, startline.getX(), startline.getY());
     }
 
     
