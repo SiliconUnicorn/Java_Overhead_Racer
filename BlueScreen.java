@@ -15,7 +15,7 @@ LinuxRacer player = new LinuxRacer();
      * 
      */
     public BlueScreen(){    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        // Create a new world with 1000x700 cells with a cell size of 1x1 pixels.
         super(1000, 700, 1);
         setupTrack();
         setupUI();
