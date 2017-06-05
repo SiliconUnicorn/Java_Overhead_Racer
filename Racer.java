@@ -10,6 +10,8 @@ public class Racer extends Actor
 {
     double deltaRotation = 0.0;
     double deltaSpeed = 0.0;
+    double health = 30.0;
+    boolean harmIfNotTouching = false;
     /**
      * act - This method should be overriden by all subclasses. In
      * this class it will only simulate physics.
@@ -45,5 +47,13 @@ public class Racer extends Actor
         if (deltaRotation < 0){
             deltaRotation -= deltaRotation/20 * resistance;
         }
+    }
+    /**
+     * moveTo - A utility method for moving the Racer to a
+     * TrackComponent instantly.
+     */
+    public void moveTo(TrackComponent trackSection){
+        setLocation(trackSection.getX(), trackSection.getY());
+        setRotation(trackSection.getRotation());
     }
 }

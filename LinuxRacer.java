@@ -22,17 +22,17 @@ public class LinuxRacer extends Racer
      * LinuxPlayer object.
      */
     public void movement(){
-        if(Greenfoot.isKeyDown("up")){
+        if(Greenfoot.isKeyDown("up") || Greenfoot.isKeyDown("W")){
             deltaSpeed += 0.75;
         }
-        if(Greenfoot.isKeyDown("down")){
+        if(Greenfoot.isKeyDown("down") || Greenfoot.isKeyDown("S")){
             deltaSpeed -= 0.75;
         }
-        if(Greenfoot.isKeyDown("right") && 
+        if((Greenfoot.isKeyDown("right") || Greenfoot.isKeyDown("D"))&& 
         (deltaSpeed > minimumSpeed || deltaSpeed < -1 * minimumSpeed)){
             deltaRotation -= 0.375 - deltaSpeed/20;
         }
-        if(Greenfoot.isKeyDown("left")  &&
+        if((Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("A"))&&
         (deltaSpeed > minimumSpeed || deltaSpeed < -1 * minimumSpeed)){
             deltaRotation += 0.375 - deltaSpeed/20;
         }
