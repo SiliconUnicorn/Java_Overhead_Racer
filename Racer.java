@@ -12,6 +12,7 @@ public class Racer extends Actor
     double deltaSpeed = 0.0;
     double health = 30.0;
     boolean harmIfNotTouching = false;
+    boolean finished = false;
     /**
      * act - This method should be overriden by all subclasses. In
      * this class it will only simulate physics.
