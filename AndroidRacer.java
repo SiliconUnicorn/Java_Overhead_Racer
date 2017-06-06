@@ -1,13 +1,12 @@
-import greenfoot.*;
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * LinuxRacer is the player's racer. It is a subclass of class Racer,
- * so it is able to simulate its own physics.
+ * AndroidRacer is the second player in this game.
  * 
- * @author Micah Hansonbrook & Zachary Siegel 
- * @version 1.0
+ * @author Micah Hansonbrook & Zachary Siegel
+ * @version 0.2
  */
-public class LinuxRacer extends Racer
+public class AndroidRacer extends Racer
 {
     private double minimumSpeed = 1.2;
     /**
@@ -22,20 +21,20 @@ public class LinuxRacer extends Racer
     }
     /**
      * movement - This method accepts keyboard input to drive the
-     * LinuxPlayer object.
+     * AndroidRacer object.
      */
     public void movement(){
-        if(Greenfoot.isKeyDown("up")){
+        if(Greenfoot.isKeyDown("W")){
             deltaSpeed += 0.75;
         }
-        if(Greenfoot.isKeyDown("down")){
+        if(Greenfoot.isKeyDown("S")){
             deltaSpeed -= 0.75;
         }
-        if((Greenfoot.isKeyDown("right"))&& 
+        if((Greenfoot.isKeyDown("F"))&& 
         (deltaSpeed > minimumSpeed || deltaSpeed < -1 * minimumSpeed)){
             deltaRotation -= 0.375 - deltaSpeed/20;
         }
-        if((Greenfoot.isKeyDown("left"))&&
+        if((Greenfoot.isKeyDown("A"))&&
         (deltaSpeed > minimumSpeed || deltaSpeed < -1 * minimumSpeed)){
             deltaRotation += 0.375 - deltaSpeed/20;
         }
