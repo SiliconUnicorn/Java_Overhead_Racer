@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class Instructions here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Micah Hansonbrook & Zachary Siegel
+ * @version 0.2
  */
 public class Instructions extends World
 {
@@ -17,8 +17,8 @@ public class Instructions extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1000, 700, 1);
-        
-        
+        Greenfoot.start();
+        prepare();
     }
 
 
@@ -29,5 +29,11 @@ public class Instructions extends World
         }
     }
 
-    
+    /**
+     * Prepare the world for the start of the program.
+     * That is: create the initial objects and add them to the world.
+     */
+    private void prepare()
+    {
+    }
 }

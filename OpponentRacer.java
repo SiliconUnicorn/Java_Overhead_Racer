@@ -24,14 +24,20 @@ public class OpponentRacer extends Racer{
      */
     public void act() {
         System.out.println("Acting!");
-        super.act();
+        /*super.act();
         roundsToNextAction -= 1;
         if (roundsToNextAction <= 0){
+            switchRotation();
+            actUponDecision();
             think();
         }
-        if (roundsToNextAction == 1){
-            actUponDecision();
+        */
+       physics();
+       if (Greenfoot.getRandomNumber(3) == 2){
+           move();
         }
+       move();
+       switchRotation();
     }
     /**
      * think - Allow the AI to make decisions about what it should do
@@ -86,7 +92,7 @@ public class OpponentRacer extends Racer{
      */
     public void move() {
         System.out.println("Moving");
-        deltaSpeed += 0.75;
+        deltaSpeed += 0.3;
     }
     /**
      * switchRotation - Increase the velocity of the AI racer so that
@@ -94,19 +100,21 @@ public class OpponentRacer extends Racer{
      */
     public void switchRotation() {
         System.out.println("Turning");
-        if (isTouching(TrackComponent.class)){
+        /*if (isTouching(TrackComponent.class)){
             final Actor REFERENCE = 
             getOneIntersectingObject(TrackComponent.class);
             System.out.println("Is Turning");
-            if (REFERENCE.getRotation() > this.getRotation()&& 
+            if (REFERENCE.getRotation() - 90 > this.getRotation()&& 
         (deltaSpeed > minimumSpeed || deltaSpeed < -1 * minimumSpeed)){
-                deltaRotation += 0.375 - deltaSpeed/20;
+                deltaRotation -= 2*(0.1 - deltaSpeed/20);
             }
-            if (REFERENCE.getRotation() < this.getRotation()&&
+            if (REFERENCE.getRotation() - 90 < this.getRotation()&&
         (deltaSpeed > minimumSpeed || deltaSpeed < -1 * minimumSpeed)){
-                deltaRotation -= 0.375 - deltaSpeed/20;
+                deltaRotation += 2*(0.1 - deltaSpeed/20);
             }
         }
+        */
+       setRotation(getOneIntersectingObject(TrackComponent.class).getRotation());
     }
 }
 /**

@@ -7,11 +7,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version 0.3
  */
 public class BlueScreen extends World{
+LinuxRacer player = new LinuxRacer();
+AndroidRacer opponent = new AndroidRacer();
 private StartLine startingLine = new StartLine();
 private boolean loadedRacers = false;
     /**
      * Constructor for objects of class BlueScreen.
-     * 
      */
     public BlueScreen(){    
         // Create a new world with 600x400 cells with a cell size of
@@ -596,10 +597,10 @@ public void setupTrack(){
      * racing in the game.
      */
     public void setupRacers(StartLine startline){
-        LinuxRacer player = new LinuxRacer();
         addObject(player, startline.getX(), startline.getY());
-        AndroidRacer opponent = new AndroidRacer();
         addObject(opponent, startline.getX(), startline.getY());
+        player.setRotation(startline.getRotation() - 90);
+        opponent.setRotation(startline.getRotation() - 90);
     }
 
     

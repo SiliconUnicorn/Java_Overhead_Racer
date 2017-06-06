@@ -33,7 +33,7 @@ public class Racer extends Actor
      * expected amount (on the x axis, y axis, and rotationally).
      */
     public void moveAsExpected(){
-        move((int) deltaSpeed);
+        move((int) deltaSpeed/2);
         setRotation(getRotation() + (int)deltaRotation);
     }
     /**
