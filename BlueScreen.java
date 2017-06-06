@@ -3,22 +3,21 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class BlueScreen here.
  * 
- * Zachary Siegel & Micah Hansonbrook
+ * Zach Siegel & Micah Hansonbrook
  * @version 0.3
  */
 public class BlueScreen extends World{
 private StartLine startingLine = new StartLine();
 private boolean loadedRacers = false;
-LinuxRacer player = new LinuxRacer();
     /**
      * Constructor for objects of class BlueScreen.
      * 
      */
     public BlueScreen(){    
-        // Create a new world with 1000x700 cells with a cell size of 1x1 pixels.
+        // Create a new world with 600x400 cells with a cell size of
+        //1x1 pixels.
         super(1000, 700, 1);
         setupTrack();
-        setupUI();
         
 }
 public void act(){
@@ -27,18 +26,10 @@ public void act(){
         setupRacers(startingLine);
     }
     if (Greenfoot.isKeyDown("space")==true){
+       Greenfoot.setWorld(new BlueScreen());
        while (Greenfoot.isKeyDown("space")==true){
            
         }
-       Greenfoot.setWorld(new BlueScreen());
-    }
-}
-public void setupUI(){
-    int time = 0;
-    while (player.getWorld()==this){
-        showText("Time: " + time, 500, 350);
-        time= time + 1;
-        
     }
 }
 public void setupTrack(){
@@ -265,7 +256,7 @@ public void setupTrack(){
 
     public void track3(){
      StartLine startline = new StartLine();
-        startingLine = startline;
+     startingLine = startline;
         addObject(startline,927,632);
         TrackComponent trackcomponent = new TrackComponent();
         addObject(trackcomponent,934,487);
@@ -371,6 +362,7 @@ public void setupTrack(){
     }
 
     public void track4(){
+     
         StartLine startline = new StartLine();
         startingLine = startline;
         addObject(startline,78,630);
@@ -526,7 +518,7 @@ public void setupTrack(){
 
     public void track5(){
      StartLine startline = new StartLine();
-        startingLine = startline;
+     startingLine = startline;
         addObject(startline,72,632);
         TrackComponent trackcomponent = new TrackComponent();
         addObject(trackcomponent,81,490);
@@ -606,11 +598,9 @@ public void setupTrack(){
     public void setupRacers(StartLine startline){
         LinuxRacer player = new LinuxRacer();
         addObject(player, startline.getX(), startline.getY());
-        OpponentRacer googleAndroid = 
-            new OpponentRacer("Android_robot.png");
-        addObject(googleAndroid, startline.getX(), startline.getY());
+        AndroidRacer opponent = new AndroidRacer();
+        addObject(opponent, startline.getX(), startline.getY());
     }
 
     
 }
-
