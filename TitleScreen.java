@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class TitleScreen here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Zachary Siegel & Micah Hansonbrook
+ * @version 1.0
  */
 public class TitleScreen extends World
 {
@@ -19,7 +19,8 @@ public class TitleScreen extends World
         super(1000, 700, 1);
         Greenfoot.start();
         prepare();
-    }
+    }
+
 
     public void act()
     {
