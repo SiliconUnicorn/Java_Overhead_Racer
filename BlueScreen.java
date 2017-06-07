@@ -32,6 +32,22 @@ public void act(){
            
         }
     }
+    if(player.finished == true){
+        Greenfoot.stop();
+    }
+    if(opponent.finished == true){
+        Greenfoot.stop();
+    }
+    if(player.returnToStart == true){
+        player.returnToStart = false;
+        player.setLocation(startingLine.getX(), startingLine.getY());
+        player.setRotation(startingLine.getRotation() - 90);
+    }
+    if(opponent.returnToStart == true){
+        opponent.returnToStart = false;
+        opponent.setLocation(startingLine.getX(), startingLine.getY());
+        opponent.setRotation(startingLine.getRotation() - 90);
+    }
 }
 public void setupTrack(){
         int trackNumber = Greenfoot.getRandomNumber(5);

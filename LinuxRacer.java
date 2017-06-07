@@ -11,13 +11,17 @@ public class LinuxRacer extends Racer
 {
     private double minimumSpeed = 1.2;
     /**
-     * act - Move around and simulate physics.
+     * act - Move around, simulate physics, record if it isn't
+     * touching the track, and records when it reaches the finish line.
      */
     public void act() {
         super.act();
         movement();
         if(isTouching(Finishline.class)){
             finished = true;
+        }
+        if(isTouching(TrackComponent.class) != true){
+            returnToStart = true;
         }
     }
     /**
@@ -33,11 +37,11 @@ public class LinuxRacer extends Racer
         }
         if((Greenfoot.isKeyDown("right"))&& 
         (deltaSpeed > minimumSpeed || deltaSpeed < -1 * minimumSpeed)){
-            deltaRotation -= 0.375 - deltaSpeed/20;
+            deltaRotation -= (0.375 - deltaSpeed/20)/2;
         }
         if((Greenfoot.isKeyDown("left"))&&
         (deltaSpeed > minimumSpeed || deltaSpeed < -1 * minimumSpeed)){
-            deltaRotation += 0.375 - deltaSpeed/20;
+            deltaRotation += (0.375 - deltaSpeed/20)/2;
         }
     }
 }

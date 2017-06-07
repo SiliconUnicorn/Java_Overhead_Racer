@@ -4,7 +4,7 @@ import greenfoot.*;
  * simple physics, rotation, and movement.
  * 
  * @author Micah Hansonbrook & Zachary Siegel
- * @version 0.2
+ * @version 1.0
  */
 public class Racer extends Actor
 {
@@ -13,6 +13,7 @@ public class Racer extends Actor
     double health = 30.0;
     boolean harmIfNotTouching = false;
     boolean finished = false;
+    boolean returnToStart = false;
     /**
      * act - This method should be overriden by all subclasses. In
      * this class it will only simulate physics.
