@@ -11,6 +11,8 @@ LinuxRacer player = new LinuxRacer();
 AndroidRacer opponent = new AndroidRacer();
 private StartLine startingLine = new StartLine();
 private boolean loadedRacers = false;
+private PlayerOneVictory p1Win = new PlayerOneVictory();
+private PlayerTwoVictory p2Win = new PlayerTwoVictory();
     /**
      * Constructor for objects of class BlueScreen.
      */
@@ -33,9 +35,11 @@ public void act(){
         }
     }
     if(player.finished == true){
+        addObject(p1Win, 600, -700);
         Greenfoot.stop();
     }
     if(opponent.finished == true){
+        addObject(p2Win, 600, -700);
         Greenfoot.stop();
     }
     if(player.returnToStart == true){
